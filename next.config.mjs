@@ -12,11 +12,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'lovable-bear-5da4cbf3d6.strapiapp.com', // Replace with your Strapi domain
+        hostname: 'lovable-bear-5da4cbf3d6.media.strapiapp.com', 
         port: '',
         pathname: '/uploads/**',
       },
     ],
+
   },
 };
 

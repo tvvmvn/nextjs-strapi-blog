@@ -7,7 +7,7 @@ export const getStaticProps = async () => {
   const resulting = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs?populate=*`);
   const result = await resulting.json();
 
-  console.log(result)
+  console.log(result.data[0].cover)
 
   return {
     props: {
