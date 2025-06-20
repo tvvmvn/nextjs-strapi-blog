@@ -40,3 +40,8 @@ a {
     color-scheme: dark;
   }
 }
+
+p { margin: 1rem 0 }
+img {
+  object-fit: cover;
+}
