@@ -12,7 +12,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       result: result.data,
-      fileUrl: process.env.FILE_URL
+      fileUrl: process.env.FILE_URL || ''
     },
   };
 };
