@@ -14,7 +14,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'lovable-bear-5da4cbf3d6.media.strapiapp.com', 
         port: '',
-        pathname: '/uploads/**',
+        // pathname: '/uploads/**',
       },
     ],
 
