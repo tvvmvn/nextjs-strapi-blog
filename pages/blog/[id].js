@@ -27,7 +27,7 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       postData: postData.data,
-      fileUrl: process.env.FILE_URL
+      fileUrl: process.env.FILE_URL || ''
     },
   };
 };
