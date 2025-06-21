@@ -3,7 +3,7 @@ import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../../styles/Home.module.css";
-import { getImageSrc } from "../utils";
+import { getImageSrc } from "../../utils";
 
 export const getStaticPaths = async () => {
   
