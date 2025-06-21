@@ -13,8 +13,8 @@ const nextConfig = {
         // https://lovable-bear-5da4cbf3d6.media.strapiapp.com/..
         protocol: 'https',
         hostname: 'lovable-bear-5da4cbf3d6.media.strapiapp.com', 
-        port: '',
-        pathname: '',
+        // port: '',
+        // pathname: '',
       },
     ],
   },
