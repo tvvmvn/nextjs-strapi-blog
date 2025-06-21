@@ -6,7 +6,7 @@ import styles from "../../styles/Home.module.css";
 
 export const getStaticPaths = async () => {
   
-  let result = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs`);
+  let result = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs`);
   result = await result.json()
 
   return {
@@ -26,14 +26,13 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
-      postData: postData.data,
-      fileUrl: process.env.FILE_URL || ''
+      postData: postData.data
     },
     revalidate: 60,
   };
 };
 
-export default function Post({ postData, fileUrl }) {
+export default function Post({ postData }) {
   
   return (
     <>
@@ -46,7 +45,7 @@ export default function Post({ postData, fileUrl }) {
         <p>{postData.description}</p>
         
         <Image
-          src={fileUrl + postData.cover.url}
+          src={NEXT_PUBLIC_STRAPI_URL + postData.cover.url}
           alt="blog-post"
           priority={true}
           className="rounded-full"
