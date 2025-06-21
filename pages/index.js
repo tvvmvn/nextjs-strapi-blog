@@ -14,6 +14,7 @@ export const getStaticProps = async () => {
       result: result.data,
       fileUrl: process.env.FILE_URL || ''
     },
+    revalidate: 60,
   };
 };
 

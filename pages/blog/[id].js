@@ -29,6 +29,7 @@ export const getStaticProps = async ({ params }) => {
       postData: postData.data,
       fileUrl: process.env.FILE_URL || ''
     },
+    revalidate: 60,
   };
 };
 
