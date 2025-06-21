@@ -2,12 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import { getImageSrc } from "./utils";
 
 export const getStaticProps = async () => {
-  const resulting = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs?populate=*`);
+  const resulting = await fetch(`${process.env.STRAPI_URL}/blogs?populate=*`);
   const result = await resulting.json();
-
-  console.log(result.data[0].cover)
 
   return {
     props: {
@@ -33,7 +32,7 @@ export default function Home({ result }) {
               <div className={styles.flexing} key={post.id}>
                 <Link href={`/blog/${post.documentId}`}>
                   <Image
-                    src={process.env.NEXT_PUBLIC_STRAPI_MEDIA_URL + post.cover.url}
+                    src={getImageSrc(post.cover.url)}
                     alt="blog-post"
                     priority={true}
                     className="rounded-full"

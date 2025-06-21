@@ -3,10 +3,11 @@ import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../../styles/Home.module.css";
+import { getImageSrc } from "../utils";
 
 export const getStaticPaths = async () => {
   
-  let result = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs`);
+  let result = await fetch(`${process.env.STRAPI_URL}/blogs`);
   result = await result.json()
 
   return {
@@ -19,10 +20,8 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   
-  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs/${params.id}?populate=*`);
+  const res = await fetch(`${process.env.STRAPI_URL}/blogs/${params.id}?populate=*`);
   const postData = await res.json();
-
-  console.log(postData.data)
 
   return {
     props: {
@@ -45,7 +44,7 @@ export default function Post({ postData }) {
         <p>{postData.description}</p>
         
         <Image
-          src={process.env.NEXT_PUBLIC_STRAPI_MEDIA_URL + postData.cover.url}
+          src={getImageSrc(postData.cover.url)}
           alt="blog-post"
           priority={true}
           className="rounded-full"
