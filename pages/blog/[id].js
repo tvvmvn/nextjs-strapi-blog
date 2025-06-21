@@ -6,7 +6,7 @@ import styles from "../../styles/Home.module.css";
 
 export const getStaticPaths = async () => {
   
-  let result = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/blogs`);
+  let result = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/blogs`);
   result = await result.json()
 
   return {
@@ -45,7 +45,7 @@ export default function Post({ postData }) {
         <p>{postData.description}</p>
         
         <Image
-          src={NEXT_PUBLIC_STRAPI_URL + postData.cover.url}
+          src={process.env.NEXT_PUBLIC_STRAPI_MEDIA_URL + postData.cover.url}
           alt="blog-post"
           priority={true}
           className="rounded-full"
